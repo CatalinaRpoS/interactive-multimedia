@@ -1,28 +1,28 @@
 class Circle {
   
-  int hue;
-  float y;
-  float outY;
-  float inY; 
-  int startFrame; 
+  int hue; //matiz
+  float y;  //Diámetro máximo del círculo
+  float outY; //diámetro del círculo exterior
+  float inY; //diámetro del círculo interior
+  int startFrame; //frameCount al comienzo del dibujo
   
   public Circle(int hue, float y, int startFrame) {
-    this.hue = hue;
+    this.hue = hue; 
     this.y = y;
-    this.outY = y;
-    this.startFrame = startFrame;
+    this.outY = y; 
+    this.startFrame = startFrame; 
   }
   
   void draw() {
     if (frameCount < startFrame) return;
-    
+    print(startFrame+"\n");
     pushMatrix();
     rotate(radians(28)*(frameCount+startFrame));
     fill(hue, 150, 200);
-    rect(0, outY, outY*0.1, outY*0.1);
+    //rect(0, outY, outY*0.1, outY*0.1);
     stroke(hue, 150, 360);
     noFill();
-    ellipse(0, 0, outY*2, outY*2);
+    ellipse(0, 0, random(900), random(900)); //ellipse(0, 0, outY, outY*2);
     noStroke();
     popMatrix();
     
