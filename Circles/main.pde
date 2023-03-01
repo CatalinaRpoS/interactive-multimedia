@@ -6,8 +6,8 @@ void setup() {
   fullScreen();
   noStroke();
   noCursor();
+  
   frameRate(100);
-  // ellipseMode(CENTER);
     
   background(0);
   
@@ -31,23 +31,17 @@ void setup() {
   colors[3][1] = #DEB6AB;
   colors[3][2] = #ECCCB2;
   colors[3][3] = #F5E8C7;
-  
-  palette = (int) random(4);
-  
+ 
   circles = new ArrayList<Circle>();
-  circles.add(new Circle(colors[palette][0], 900.0, 0)); 
-  circles.add(new Circle(colors[palette][1], 900.0, 150));
-  circles.add(new Circle(colors[palette][2], 900.0, 300));
-  circles.add(new Circle(colors[palette][3], 900.0,450)); 
+  circles.add(new Circle(900.0, 0)); 
+  circles.add(new Circle(900.0, 200));
+  circles.add(new Circle(900.0, 400));
+  circles.add(new Circle(900.0,600)); 
  
 }
 
 void draw() {
   fill(0, 5);
-  rect(0, 0, width, height);
- 
-  pushMatrix();
   translate(width/2, height/2);
   for (Circle c: circles) c.draw();
-  popMatrix();
 }
