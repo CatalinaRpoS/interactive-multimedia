@@ -1,14 +1,15 @@
 ArrayList<Circle> circles;
 int [][] colors;
 int palette;
-float offset = 0.0;
 
 void setup() {
   fullScreen();
   noStroke();
+  noCursor();
   frameRate(100);
+  // ellipseMode(CENTER);
     
-  background(0);
+  background(255);
   
   colors = new int[4][4];
   colors[0][0] = #30E3DF;
@@ -31,14 +32,14 @@ void setup() {
   colors[3][2] = #ECCCB2;
   colors[3][3] = #F5E8C7;
   
-  palette = (int)random(4);
+  palette = (int) random(4);
   
   circles = new ArrayList<Circle>();
   circles.add(new Circle(colors[palette][0], 900.0, 0)); 
-  circles.add(new Circle(colors[palette][1], 900.0, 200));
-  circles.add(new Circle(colors[palette][2], 900.0, 400));
-  circles.add(new Circle(colors[palette][3], 900.0, 600)); 
-   
+  circles.add(new Circle(colors[palette][1], 900.0, 150));
+  circles.add(new Circle(colors[palette][2], 900.0, 300));
+  circles.add(new Circle(colors[palette][3], 900.0,450)); 
+ 
 }
 
 void draw() {
