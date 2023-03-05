@@ -63,8 +63,6 @@ void setup() {  //Metodo setup para definir la configuración inicial del proyec
   colors[9][2] = #FFDD00;
   colors[9][3] = #FF0000;
   
-  
-  
   palette = (int)random(10); 
   
   //Se instancian las 4 elipses, cada uno variando su startFrame de 0 a 600 con diferencia de 200
@@ -82,15 +80,23 @@ void draw() {
  
 
   translate(width/2, height/2); //Centra los círculos
+  
   int i=0; //Variable del contador para hacer posible el cambio de paleta
+  
   for (int j=0;j<4; j++){
-    if(frameCount%600==0){ //Se cambia de paleta cuando ya se hayan generado los 4 círculos
+            
+    // Se cambia de paleta cuando ya se hayan generado los 4 círculos o cuando se haga
+    // clic sobre la pantalla
+    if (frameCount % 600 == 0 || mousePressed == true){ 
       palette = (int)random(10);
       circles.get(0).setCode(colors[palette][0]);
       circles.get(1).setCode(colors[palette][1]);
       circles.get(2).setCode(colors[palette][2]);
       circles.get(3).setCode(colors[palette][3]);
     }
+    
+    if (key == ENTER) exit(); // Se termina la ejecución del programa al presionar la tecla enter
+      
     circles.get(j).draw(); //Ejecuta el draw de cada círculo
     i=i+1; //Incrementa el contador para el cambio de paleta
   }

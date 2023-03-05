@@ -14,7 +14,7 @@ class Circle {
     this.startFrame = startFrame; 
   }
   public void setCode(int code){ //Cambio del atributo del código del color
-    this.code=code;
+    this.code = code;
   }
   
   void draw() {
@@ -26,7 +26,7 @@ class Circle {
     offset += 0.01; //Se incrementa la variable para el noise, esto hace que el "parkinson" de las figuras no sea tan potente
     rotate(PI/4); //Cada elipse se va rotando 45° 
     ellipse(0, 0, width/4 + noise(offset) * mouseX/2, outY_Ellipse*2); //Se le asignan posición y dimensiones a la elípse, aunque en este caso se tiene en cuenta la posición del puntero y se le agrega el elemento noise
-    
+   
     noStroke(); //Sin borde
     outY -= outY / (y/2); //Disminuye la dimensión del "círculo"
     outY_Ellipse -= outY_Ellipse / (y/2); //Disminuye la dimensión de la elípse
