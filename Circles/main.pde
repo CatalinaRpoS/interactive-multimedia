@@ -3,10 +3,11 @@ int [][] colors;
 int palette;
 float offset = 0.0;
 
+
 void setup() {
   fullScreen();
   noStroke();
-  frameRate(100);
+  frameRate(120);
     
   background(0);
   
@@ -34,10 +35,10 @@ void setup() {
   palette = (int)random(4);
   
   circles = new ArrayList<Circle>();
-  circles.add(new Circle(colors[palette][0], 900.0, 0)); 
-  circles.add(new Circle(colors[palette][1], 900.0, 200));
-  circles.add(new Circle(colors[palette][2], 900.0, 400));
-  circles.add(new Circle(colors[palette][3], 900.0, 600)); 
+  circles.add(new Circle(colors[palette][0],900.0, 0)); 
+  circles.add(new Circle(colors[palette][1],900.0, 200));
+  circles.add(new Circle(colors[palette][2],900.0, 400));
+  circles.add(new Circle(colors[palette][3],900.0, 600)); 
    
 }
 
@@ -47,6 +48,17 @@ void draw() {
  
   pushMatrix();
   translate(width/2, height/2);
-  for (Circle c: circles) c.draw();
+  int i=0;
+  for (int j=0;j<4; j++){
+    if(frameCount%600==0){
+      palette = (int)random(4);
+      circles.get(0).setCode(colors[palette][0]);
+      circles.get(1).setCode(colors[palette][1]);
+      circles.get(2).setCode(colors[palette][2]);
+      circles.get(3).setCode(colors[palette][3]);
+    }
+    circles.get(j).draw();
+    i=i+1;
+  }
   popMatrix();
 }
