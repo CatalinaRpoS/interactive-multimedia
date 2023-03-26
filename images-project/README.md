@@ -1,4 +1,4 @@
-# Multimedia Interactiva - Project
+# Multimedia Interactiva - Images Project
 
 This project belongs to Multimedia Interactiva course. We are learning to use processing, a programming language for generate and manipulate images, text and audio.
 
