@@ -5,6 +5,7 @@ ArrayList<Circle> circles; //Definimos un array de objeto círculo
 int [][] colors; //Definimos una matriz de colores para las paletas
 int palette; //Elemento random de tipo entero para escoger la paleta de colores
 float offset = 0.0; //Argumento del noise en la creación de la elipse
+float notes;
 
 void setup() {  //Metodo setup para definir la configuración inicial del proyecto
   fullScreen(); //Pantalla completa
@@ -81,9 +82,14 @@ void setup() {  //Metodo setup para definir la configuración inicial del proyec
 /* Incoming osc message are forwarded to the oscEvent method. */
 void oscEvent(OscMessage oscMessage) {
   /* print the address pattern and the typetag of the received OscMessage */
-  print("### received an osc message.");
-  print(" addrpattern: "+oscMessage.addrPattern());
-  println(" typetag: "+oscMessage.typetag());
+  //print("### received an osc message.");
+  //print(" addrpattern: "+oscMessage.addrPattern());
+  //println(" typetag: "+oscMessage.typetag());
+  if(oscMessage.checkAddrPattern("/notes")) {
+    notes = oscMessage.get(0).floatValue();
+    println(notes);
+    
+  }
   
   /*if(oscMessage.checkAddrPattern("/metro")){
     x = map(oscMessage.get(0).floatValue(), 0, 100, 20, width);
@@ -118,5 +124,21 @@ void draw() {
     circles.get(j).draw(); //Ejecuta el draw de cada círculo
     i=i+1; //Incrementa el contador para el cambio de paleta
   }
-  
+    for (int j=0;j<4; j++){
+            
+    // Se cambia de paleta cuando ya se hayan generado los 4 círculos o cuando se haga
+    // clic sobre la pantalla
+   
+       
+      circles.get(0).setOutY(notes*10);
+      circles.get(1).setOutY(notes*10);
+      circles.get(2).setOutY(notes*10);
+      circles.get(3).setOutY(notes*10);
+      
+      circles.get(0).setOutY_Ellipse(notes*10);
+      circles.get(1).setOutY_Ellipse(notes*10);
+      circles.get(2).setOutY_Ellipse(notes*10);
+      circles.get(3).setOutY_Ellipse(notes*10);
+
+    }
 }

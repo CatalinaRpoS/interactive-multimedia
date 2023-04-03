@@ -16,6 +16,12 @@ class Circle {
   public void setCode(int code){ //Cambio del atributo del código del color
     this.code = code;
   }
+  public void setOutY(float outY){ //Cambio del atributo del código del color
+    this.outY = outY;
+  }
+  public void setOutY_Ellipse(float outY_Ellipse){ //Cambio del atributo del código del color
+    this.outY_Ellipse = outY_Ellipse;
+  }
   
   void draw() {
     if (frameCount < startFrame) return; 
