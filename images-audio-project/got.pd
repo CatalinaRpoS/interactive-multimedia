@@ -20,7 +20,7 @@
 #X obj 867 1011 makenote 80 1;
 #X obj 359 130 f;
 #X obj 411 131 + 1;
-#X obj 359 50 tgl 19 0 empty empty empty 0 -10 0 12 #fcfcfc #000000 #000000 0 1;
+#X obj 357 50 tgl 19 0 empty empty empty 0 -10 0 12 #fcfcfc #000000 #000000 0 1;
 #X msg 92 736 69;
 #X msg 243 735 62;
 #X msg 424 737 65;
@@ -51,9 +51,9 @@
 #X msg 544 821 connect localhost 11111;
 #X obj 723 808 pack f;
 #X obj 723 932 oscformat /notes;
-#X obj 361 90 metro 500;
-#X obj 357 258 sel 0 2 4 5 6 8 10 11 12 15 17 19 20 21 23 25 26 27 28 29 30;
-#X obj 359 176 % 30;
+#X obj 361 90 metro 200;
+#X obj 357 258 sel 0 2 4 5 6 8 10 11 12 16 18 20 21 22 24 26 27 28 29 30 31 32 33, f 67;
+#X obj 359 176 % 33;
 #X connect 0 0 22 0;
 #X connect 1 0 23 0;
 #X connect 3 0 24 0;
