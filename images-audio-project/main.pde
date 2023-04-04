@@ -1,3 +1,4 @@
+
 import netP5.*;
 import oscP5.*;
 
@@ -169,6 +170,10 @@ void draw() {
     triangles.get(2).setZ(notes);
     triangles.get(3).setZ(notes);
     
- 
+    squares.get(0).setWh(notes);
+    squares.get(1).setWh(notes+15);
+    squares.get(2).setWh(notes+30);
+    squares.get(3).setWh(notes+45);
+    
   if (key == ENTER) exit(); // Se termina la ejecución del programa al presionar la tecla enter
 }

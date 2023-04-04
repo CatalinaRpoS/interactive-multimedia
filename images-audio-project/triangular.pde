@@ -43,15 +43,6 @@ class Triang{
     triangle(x1,x2,y1,y2,z1,z2);
     rotate(PI/5);
     triangle(x1, z1, x2, y1+250, z1, y2);
-    //offset += 0.01; //Se incrementa la variable para el noise, esto hace que el "parkinson" de las figuras no sea tan potente
-    //rotate(PI/2); //Cada elipse se va rotando 45° 
-    //triangle(25, 175, 175, 175, 100, 25);
-    noStroke(); //Sin borde
-    //outY -= outY / (y/2); //Disminuye la dimensión del "círculo"
-    //outY_Ellipse -= outY_Ellipse / (y/2); //Disminuye la dimensión de la elípse
-    //if (frameCount%y == 0) outY_Ellipse = y; //Reinicia la dimensión de la elípse cada 900 frames
-    //if (frameCount%y-startFrame == 0) outY = y; //Reinicia la dimensión del círculo cada y-startFrame multiplo
-   
  }
     
 }
