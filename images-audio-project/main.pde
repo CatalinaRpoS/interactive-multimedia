@@ -3,6 +3,7 @@ import oscP5.*;
 
 ArrayList<Circle> circles; //Definimos un array de objeto círculo
 ArrayList<Triang> triangles; //Definimos un array de objeto círculo
+ArrayList<Square> squares; //Definimos un array de objeto círculo
 int [][] colors; //Definimos una matriz de colores para las paletas
 int palette; //Elemento random de tipo entero para escoger la paleta de colores
 float offset = 0.0; //Argumento del noise en la creación de la elipse
@@ -81,9 +82,16 @@ void setup() {  //Metodo setup para definir la configuración inicial del proyec
   palette = (int)random(10); 
   triangles = new ArrayList<Triang>();
   triangles.add(new Triang(colors[palette][0],0, 300, 300, 300, 150, 0,100));
-  triangles.add(new Triang(colors[palette][1],0, 300, 300, 300, 150, 0,150));
-  triangles.add(new Triang(colors[palette][2],0, 300, 300, 300, 150, 0,200));
-  triangles.add(new Triang(colors[palette][3],0, 300, 300, 300, 150, 0,250));
+  triangles.add(new Triang(colors[palette][1],0, 300, 300, 300, 150, 0,200));
+  triangles.add(new Triang(colors[palette][2],0, 300, 300, 300, 150, 0,300));
+  triangles.add(new Triang(colors[palette][3],0, 300, 300, 300, 150, 0,400));
+  
+  palette = (int)random(10); 
+  squares = new ArrayList<Square>();
+  squares.add(new Square(colors[palette][0],width/2, height/2, 100, 100));
+  squares.add(new Square(colors[palette][1],width/2, height/2, 200, 200));
+  squares.add(new Square(colors[palette][2],width/2, height/2, 300, 300));
+  squares.add(new Square(colors[palette][3],width/2, height/2, 400, 400));
 
 }
 
@@ -115,9 +123,10 @@ void draw() {
   for (int j=0;j<4; j++){
     circles.get(j).draw(); //Ejecuta el draw de cada círculo
     triangles.get(j).draw(); //Ejecuta el draw de cada triangulo
-    // Se cambia de paleta cuando ya se hayan generado los 4 círculos o cuando se haga
-    // clic sobre la pantalla
-    if (frameCount % 600 == 0 || mousePressed == true){ 
+    squares.get(j).draw();
+    }
+    
+  if (frameCount % 600 == 0 || mousePressed == true){ 
       palette = (int)random(10);
       circles.get(0).setCode(colors[palette][0]);
       circles.get(1).setCode(colors[palette][1]);
@@ -128,6 +137,11 @@ void draw() {
       triangles.get(1).setCode(colors[palette][1]);
       triangles.get(2).setCode(colors[palette][2]);
       triangles.get(3).setCode(colors[palette][3]);
+      palette = (int)random(10); 
+      squares.get(0).setCode(colors[palette][0]);
+      squares.get(1).setCode(colors[palette][1]);
+      squares.get(2).setCode(colors[palette][2]);
+      squares.get(3).setCode(colors[palette][3]);
   }
     
     circles.get(0).setOutY(notes*10);
@@ -155,7 +169,6 @@ void draw() {
     triangles.get(2).setZ(notes);
     triangles.get(3).setZ(notes);
     
-  }
  
   if (key == ENTER) exit(); // Se termina la ejecución del programa al presionar la tecla enter
 }
