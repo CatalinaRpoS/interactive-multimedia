@@ -116,7 +116,7 @@ void oscEvent(OscMessage oscMessage) {
 
 void draw() {
   fill(0, 7); //El primer argumento es el color del fondo, y el segundo es el grado de opacidad
-  rect(0, 0, width, height); //Crea un rectángulo en cada aparición de una elípse para hacerla más visible
+  rect(0, 0, width*2, height*2); //Crea un rectángulo en cada aparición de una elípse para hacerla más visible
  
   translate(width/2, height/2); //Centra los círculos
   
