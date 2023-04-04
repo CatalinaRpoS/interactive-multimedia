@@ -2,6 +2,7 @@ import netP5.*;
 import oscP5.*;
 
 ArrayList<Circle> circles; //Definimos un array de objeto círculo
+ArrayList<Triang> triangles; //Definimos un array de objeto círculo
 int [][] colors; //Definimos una matriz de colores para las paletas
 int palette; //Elemento random de tipo entero para escoger la paleta de colores
 float offset = 0.0; //Argumento del noise en la creación de la elipse
@@ -76,7 +77,13 @@ void setup() {  //Metodo setup para definir la configuración inicial del proyec
   circles.add(new Circle(colors[palette][1],900.0, 200));
   circles.add(new Circle(colors[palette][2],900.0, 400));
   circles.add(new Circle(colors[palette][3],900.0, 600)); 
-   
+  
+  palette = (int)random(10); 
+  triangles = new ArrayList<Triang>();
+  triangles.add(new Triang(colors[palette][0],width/2,width/10,height/2,height/100,700,700,0));
+  triangles.add(new Triang(colors[palette][1],width/4,width/12,height/5,height/20,400,600,200));
+  triangles.add(new Triang(colors[palette][2],width/6,width/14,height/8,height/70,1000,900,400));
+  triangles.add(new Triang(colors[palette][3],width/8,width/16,height/11,height/50,300,500,600));
 }
 
 /* Incoming osc message are forwarded to the oscEvent method. */
@@ -141,4 +148,8 @@ void draw() {
       circles.get(3).setOutY_Ellipse(notes*10);
 
     }
+    for (int j=0;j<4; j++){
+       triangles.get(j).draw(); //Ejecuta el draw de cada círculo
+       j=j+1; //Incrementa el contador para el cambio de paleta
+     }
 }
