@@ -10,6 +10,14 @@ This project also belongs to Interactive Multimedia course. This time, we are co
 
 ## Our Inspiration
 
-We are editing this section right now.
+| Watch on [YouTube](https://www.youtube.com/watch?v=TZE9gVF1QbA) | Watch on [YouTube](https://www.youtube.com/watch?v=iDiuc-SPmPI) | 
+| -- | -- | 
+| ![Inspiration_01](.//images/inspiration_01.png) | ![Inspiration_02](.//images/inspiration_02.png) | 
+
+
+## Video 
+
+Do you want to know our project? [click here!](https://youtu.be/eFPVBlRsI_4).
+
 
 ### Thank you! 
