@@ -16,3 +16,7 @@ body {
 canvas {
     display: block;
 }
+
+activateButton {
+    background: yellow;
+}
