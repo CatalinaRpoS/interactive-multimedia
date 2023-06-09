@@ -12,24 +12,27 @@ let myShader;
 let amplitud;
 let isListening = false;
 let color = 155;
+let noise;
 
 function preload() {
     
     soundFormats('mp3');
-    canciones.push([loadSound("sound_files/Billie-Jean"),"la camisa negra"]);
-    canciones.push([loadSound("sound_files/Bittersweet-Symphony"),"lamento boliviano"]);
-    canciones.push([loadSound("sound_files/Eye-Of-The-Tiger"),"de música ligera"]);
-    canciones.push([loadSound("sound_files/Its-My-Life"),"labios rotos"]); 
-    canciones.push([loadSound("sound_files/Lemon-Tree"),"en algún lugar"]);
-    canciones.push([loadSound("sound_files/Mr.-Blue-Sky"),"devuélveme a mi chica"]); 
-    canciones.push([loadSound("sound_files/My-Heart-Will-Go-On"),"hijo de la luna"]);
-    canciones.push([loadSound("sound_files/Stayin-Alive"),"rosas"]); 
-    canciones.push([loadSound("sound_files/Take-On-Me"),"1000 horas"]);
-    canciones.push([loadSound("sound_files/The-Final-Countdown"),"tren al sur"]); 
-    canciones.push([loadSound("sound_files/Wind-Of-Change"),"colgando en tus manos"]);
-    canciones.push([loadSound("sound_files/Wonderwall"),"tabaco y chanel"]); 
+    canciones.push([loadSound("sound_files/camisanegra"),"la camisa negra"]);
+    canciones.push([loadSound("sound_files/lamentoboliviano"),"lamento boliviano"]);
+    canciones.push([loadSound("sound_files/sodaestereo"),"de música ligera"]);
+    canciones.push([loadSound("sound_files/labiosrotos"),"labios rotos"]); 
+    canciones.push([loadSound("sound_files/enalgunlugar"),"en algún lugar"]);
+    canciones.push([loadSound("sound_files/devuelvemeamichica"),"devuélveme a mi chica"]); 
+    canciones.push([loadSound("sound_files/hijodelaluna"),"hijo de la luna"]);
+    canciones.push([loadSound("sound_files/rosas"),"rosas"]); 
+    canciones.push([loadSound("sound_files/milhoras"),"1000 horas"]);
+    canciones.push([loadSound("sound_files/trenalsur"),"tren al sur"]); 
+    canciones.push([loadSound("sound_files/colgandoentusmanos"),"colgando en tus manos"]);
+    canciones.push([loadSound("sound_files/tabacochanel"),"tabaco y chanel"]); 
 
     myShader = loadShader("shaders/shader.vert", "shaders/shader.frag");
+
+    noise = loadImage("noise.png");
 }
 
 function setup() {
@@ -86,6 +89,13 @@ function draw() {
     parar();
   } else if (speechValue == "siguiente" && !isPlaying) {
     empezar();
+    // Send the frameCount to the shader
+    myShader.setUniform("uFrameCount", frameCount);
+    myShader.setUniform("uNoiseTexture", noise);
+
+    // Rotate our geometry on the X and Y axes
+    rotateX(frameCount * 0.01);
+    rotateY(frameCount * 0.005);
   } 
 
   // Cambio de índice para comenzar nuevamente
@@ -101,19 +111,34 @@ function draw() {
     empezar();
   }
 
-  // shader() sets the active shader with our shader
-  shader(myShader);
+  if (auxiliar%2==0){
+    // shader() sets the active shader with our shader
+    shader(myShader);
+    // Send the frameCount to the shader
+    myShader.setUniform("uFrameCount", frameCount);
+    myShader.setUniform("uNoiseTexture", noise);
 
-  // Send the frameCount to the shader
-  myShader.setUniform("uFrameCount", frameCount);
+    // Rotate our geometry on the X and Y axes
+    rotateX(frameCount * 0.01+level);
+    rotateY(frameCount * 0.005+level);
 
-  // Rotamos la figura en función del tiempo y la amplitud del audio
-  rotateX(frameCount * 0.01 + level);
-  rotateY(frameCount * 0.005 + level);
-
-  // Draw some geometry to the screen
+    // Draw some geometry to the screen
   // We're going to tessellate the sphere a bit so we have some more geometry to work with
-  sphere(width / 7, 200, 200);
+    sphere(width / 7, 200, 200);
+  }else{
+    // shader() sets the active shader with our shader
+    shader(myShader);
+      // Send the frameCount to the shader
+    myShader.setUniform("uFrameCount", frameCount);
+
+    // Rotamos la figura en función del tiempo y la amplitud del audio
+    rotateX(frameCount * 0.01 + level);
+    rotateY(frameCount * 0.005 + level);
+
+    // Draw some geometry to the screen
+  // We're going to tessellate the sphere a bit so we have some more geometry to work with
+    sphere(width / 7, 200, 200);
+  }
   
 } 
 
