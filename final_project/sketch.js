@@ -37,7 +37,14 @@ function preload() {
 
 function setup() {
     createCanvas(windowWidth, windowHeight, WEBGL);
-
+    puntosParrafo = createP(puntos + "/12"); 
+    puntosParrafo.position(900, -60); 
+    puntosParrafo.style("text-shadow", "2px 2px 4px rgba(0, 0, 0, 0.3)");
+    puntosParrafo.style("font-size", "70px"); 
+    puntosParrafo.style("font-family", "papyrus");
+    puntosParrafo.style("color", "white"); 
+    puntosParrafo.style("padding", "10px"); 
+    puntosParrafo.style("border-radius", "5px"); 
     background(color);
 
     speechRec = new p5.SpeechRec('es-ES');
@@ -50,8 +57,18 @@ function setup() {
 
     // Crear botón para activar y desactivar el reconocimiento de voz
     let activateButton = createButton("Quiero hablar");
-    activateButton.position(10, 10);
+    activateButton.position(800, 825);
     activateButton.mousePressed(activateRecognition);
+    activateButton.style("padding", "30px 100px");
+    activateButton.style("background-color", "white");
+    activateButton.style("color", "black");
+    activateButton.style("border", "2px solid black");
+    activateButton.style("cursor", "pointer");
+    activateButton.style("font-size", "20px");
+    activateButton.style("border-radius", "20px");
+    activateButton.style("box-shadow", "0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)");
+    activateButton.style("font-family", "goudy old style");
+    activateButton.style("font-style", "italic");
 }
 
 function activateRecognition() {
@@ -74,7 +91,7 @@ function gotSpeech() {
     console.log(speechValue);
   }
 }
-
+puntos = 0; 
 function draw() {
 
   background(color);
@@ -105,10 +122,14 @@ function draw() {
   }  
 
   // Reconocimiento del título de la canción
+  
   if (speechValue == canciones[auxiliar][1]) {
     console.log("Correcto");
+    puntos = puntos + 1;  
     parar();
     empezar();
+    puntosParrafo.html(puntos + "/ 12");
+    console.log(puntos);
   }
 
   if (auxiliar%2==0){
