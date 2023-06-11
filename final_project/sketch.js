@@ -59,6 +59,7 @@ function setup() {
     let activateButton = createButton("Quiero hablar");
     activateButton.position(800, 825);
     activateButton.mousePressed(activateRecognition);
+    //Estilización del botón
     activateButton.style("padding", "30px 100px");
     activateButton.style("background-color", "white");
     activateButton.style("color", "black");
