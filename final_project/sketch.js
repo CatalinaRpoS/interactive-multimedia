@@ -42,8 +42,16 @@ function setup() {
 
     angleMode(DEGREES);
 
+    //let marginPercentage = 5;
+    //let marginX = (windowWidth * marginPercentage) / 100;
+    //let marginY = (windowHeight * marginPercentage) / 100;
+
     puntosParrafo = createP(puntos + "/12"); 
-    puntosParrafo.position(windowWidth - (windowWidth - 1500), windowHeight - (windowHeight-60)); 
+    //puntosParrafo.position(windowWidth - (windowWidth - 1500), windowHeight - (windowHeight-60)); 
+    //puntosParrafo.position(marginX, marginY);
+    puntosParrafo.style('position', 'fixed');
+    puntosParrafo.style('top', '-5%');
+    puntosParrafo.style('right', '5%');
     puntosParrafo.style("text-shadow", "2px 2px 4px rgba(0, 0, 0, 0.3)");
     puntosParrafo.style("font-size", "60px"); 
     puntosParrafo.style("font-family", "Verdana");
