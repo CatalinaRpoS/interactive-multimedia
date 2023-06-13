@@ -43,9 +43,9 @@ function setup() {
     angleMode(DEGREES);
 
     puntosParrafo = createP(puntos + "/12"); 
-    puntosParrafo.position(1000, -50); 
+    puntosParrafo.position(windowWidth - (windowWidth - 1500), windowHeight - (windowHeight-60)); 
     puntosParrafo.style("text-shadow", "2px 2px 4px rgba(0, 0, 0, 0.3)");
-    puntosParrafo.style("font-size", "70px"); 
+    puntosParrafo.style("font-size", "60px"); 
     puntosParrafo.style("font-family", "Verdana");
     puntosParrafo.style("font-weight", "700");
     //puntosParrafo.style("font-family", "papyrus");
@@ -65,7 +65,7 @@ function setup() {
 
     // Crear botón para activar y desactivar el reconocimiento de voz
     let activateButton = createButton("Quiero hablar");
-    activateButton.position(70, 50);
+    activateButton.position(windowWidth - (windowWidth - 50), windowHeight - (windowHeight-50));
     activateButton.mousePressed(activateRecognition);
     //Estilización del botón
     activateButton.style("background-image", "linear-gradient(135deg, #f34079 40%, #fc894d)");
